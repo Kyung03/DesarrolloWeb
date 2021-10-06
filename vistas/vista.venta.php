@@ -1,4 +1,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,50 +14,107 @@
     <header class="py-5">
             <div class="container px-lg-5">
                 <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
-                    <div class="m-4 m-lg-5">
-                        <h2>Ingresar datos para la venta</h2>
+                    <div class="m-4 m-lg-5" id="dv">
+                        <h2>Seleccionar producto para la venta</h2>
                          
-                        <select name="producto[]" id="producto"> 
+                        <select name="producto" id="producto" onchange="insertar_producto()" > 
                         <?php   
                         while($mostrar=mysqli_fetch_array($result)){
-                            echo '<option value="'.$mostrar['nombre_producto'].'">'.$mostrar['nombre_producto'].'</option>'; 
+                            echo '<option value="'.$mostrar['codigo_producto'].'">'.$mostrar['nombre_producto'].'</option>';
+                             
                         }?>
                         </select>
-                        <table id="tabla">
-                        <thead>
-                            <tr>
-                                <th>Select</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                        </table>
-                        <button type="button" onClick="AddItem();">Agregar Producto.</button>
-                        <input type="button" value="Delete" onclick="deleteRow(this)"/></td>
-                         
+                        <?php
+                        while($mostrar2=mysqli_fetch_array($result)){ 
+                            echo '<input name="precio" value="'.$mostrar2['precio'].'" >'; 
+                        }
+                        ?>
+                         <div id="demo">
 
-                        <form action="controlador.php?task=insertar_producto_modelo" method="POST"> 
-
-                        <input name = "nombre"      type = "text" placeholder = "Nombre"    required >
-                        <input name = "precio"      type = "text" placeholder = "Precio"    required >
-                        <input name = "cantidad"    type = "text" placeholder = "Cantidad"  required > 
-                        <br>
-                        <input type="submit" value="Ingresar">
-                        </form>
+                         </div> 
+                        <button type="submit" id="button">SAVE</button> 
                     </div>
                 </div>
             </div>
         </header>
 <?php require 'footer.php'; ?>
+<script>
+        $(document).ready(function(){
+            $("#button").click(function(){
+                //var name=$("#name").val();
+                //var email=$("#email").val();
+                $.ajax({
+                    url:'../modelo/modelo.insertar.venta.php',
+                    method:'POST',
+                    data:{
+                        'lista': JSON.stringify(lista)
+                    },
+                   success:function(data){
+                       alert(data);
+                   }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
 
 <script>
+    var lista = [];
+    function insertar_producto() {
+        
+        var cod     =   document.getElementById("producto").value;
+        var tr      =   document.createElement('tr');
+        var precio = "precio";
+        var options =   '<td>    ';
+        lista.push(cod);
+        alert(lista);
+        /*      input del codigo                */
+        options += '<input name = "'    +cod+   '" type = "text" value          = "'    +cod+           '" disabled >'+' </td>';
+        /*      input del precio                */
+        options += '<input name = "'    +cod+   '" type = "text" value          = "'    +precio+        '" disabled >'+' </td>';
+        /*      input de la cantidad            */
+        options += '<input name = "'    +cod+   '" type = "text" Placeholder    = "'    +"Cantidad"+    '"          >'+' </td>';
+
+		tr.innerHTML = options;
+        document.getElementById("demo").appendChild(tr);
+		//tbody.appendChild(tr); 
+        //var input = document.createElement("input");
+        //input.setAttribute("id","yourId");  
+        //input.disabled;
+        //input.value = document.getElementById("producto").value;
+        //document.body.appendChild(btn);
+       // document.getElementById("demo").appendChild(input);
+    }
+
+    function showUser(str) {
      
+    var xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function() {
+        if (this.readyState==4 && this.status==200) {
+        return this.responseText;
+        }
+    }
+    xmlhttp.open("GET","../modelo/modelo.php?q="+str,true);
+    xmlhttp.send();
+    }
+
+     function buscar(numero_empleado) { 
+    var xhttp = new XMLHttpRequest();               
+    var numero = "numero="+numero_empleado;
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("nombreE").value = this.responseText;
+        }       
+    };
+    xhttp.open("POST", "../modelo/modelo.php", true);
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+    xhttp.send(numero);
+    }
 
      var ruits = [];
      
-     $("[name='producto[]'] option").each(function() {
+     $("[name='producto'] option").each(function() {
         ruits.push($(this).val());
     }); 
      
