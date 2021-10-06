@@ -7,7 +7,7 @@ function conectar(){
     $base_datos="las_casas_del_escuintleco_bd";
     $con=mysqli_connect($servidor,$usuario,$contraseña,$base_datos) or die ("Error al conectar con la base de datos".mysqli_error());
     //$mysqli = new mysqli("localhost", "root", "", "analisis_ii");
-    //prueba
+    //pruebaDaniel
     return $con;
 } 
 ?>
