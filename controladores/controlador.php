@@ -102,7 +102,7 @@ switch($var){
         break;
 
         case 'venta':
-            require_once('../modelo/modelo.listar.producto.php');
+            require_once('../modelo/modelo.listar.producto.php'); 
             include_once('../vistas/vista.venta.php'); 
         break;
 
