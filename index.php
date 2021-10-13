@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-<?php header("Location: controladores/controlador.php?task=login"); ?>
+<?php  $mensaje=""; header("Location: controladores/controlador.php?task=login"); ?>
 </body>
 </html>

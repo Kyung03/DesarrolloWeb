@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingreso proveedores</title>
-    <link href="../public/css/styles.css" rel="stylesheet" />
+     
 </head>
 <body>
 <?php  require 'header.menu.php'; ?>
@@ -15,12 +15,16 @@
                     <div class="m-4 m-lg-5">
                     <form action="controlador.php?task=insertar_proveedor_modelo" method="POST">
                         <h2>Ingresar datos del proveedor</h2>
-                    <input name = "nombreProveedor"   type = "text" placeholder = "Nombre"    required >
-                    <input name = "telefonoProveedor"  type = "text" placeholder = "Telefono"  required >
-                    <input name = "direccionProveedor" type = "text" placeholder = "Direccion" required >
-                    <input name = "correoProveedor"    type = "text" placeholder = "Correo"    required >
+                        <table class="table">
+                            <tr>
+                                <th><input name = "nombreProveedor"   type = "text" placeholder = "Nombre"    required ></th>
+                                <th><input name = "telefonoProveedor"  type = "text" placeholder = "Telefono"  required ></th>
+                                <th> <input name = "direccionProveedor" type = "text" placeholder = "Direccion" required ></th>
+                                <th><input name = "correoProveedor"    type = "text" placeholder = "Correo"    required ></th>
+                            </tr>
+                        </table> 
                     <br>
-                    <input type="submit" value="Ingresar">
+                    <input type="submit" value="Ingresar" class="btn btn-primary" >
                     </form>
                     </div>
                 </div>

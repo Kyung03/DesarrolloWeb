@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Venta</title>
-    <link href="../public/css/styles.css" rel="stylesheet" />
+    
 </head>
 <body>
 <?php  require 'header.menu.php'; ?>
@@ -85,7 +85,7 @@
                         ?>
                          </div>
                          <br><br>
-                         <button type="submit" id="button">SAVE</button>  
+                         <button type="submit" id="button" class="btn btn-success">Realizar venta</button>  
                         
                     </div>
                 </div>

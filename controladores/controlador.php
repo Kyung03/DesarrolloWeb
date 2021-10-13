@@ -9,6 +9,8 @@ switch($var){
 
     
     case 'login':
+        //require_once('index.php');
+        $mensaje="";
         include_once('../vistas/login.vista.php');
     break;
 
@@ -18,11 +20,11 @@ switch($var){
 
     case 'ingreso': 
         //echo "aaaaa";
-        if(isset($_POST["usuario"])){
+        if(isset($_POST["usuario"]) && isset($_POST["contrasena"]) ){
         $usuario=$_POST["usuario"];
         $contrasena=$_POST["contrasena"]; 
-        echo $usuario;
-        echo $contrasena;
+        //echo $usuario;
+        //echo $contrasena;
         require_once('../modelo/modelo.inicio.php');
         }
     break;

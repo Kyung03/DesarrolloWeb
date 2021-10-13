@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingreso producto</title>
-    <link href="../public/css/styles.css" rel="stylesheet" />
+     
 </head>
 <body>
 <?php  require 'header.menu.php'; ?>
@@ -15,11 +15,15 @@
                     <div class="m-4 m-lg-5">
                     <form action="controlador.php?task=insertar_producto_modelo" method="POST">
                         <h2>Ingresar datos del producto</h2>
-                    <input name = "nombre"   type = "text" placeholder = "Nombre"    required >
-                    <input name = "precio"  type = "text" placeholder = "Precio"  required >
-                    <input name = "cantidad" type = "text" placeholder = "Cantidad" required > 
+                        <table class="table">
+                            <tr>
+                                <th><input name = "nombre"   type = "text" placeholder = "Nombre"    required ></th>
+                                <th><input name = "precio"   type = "text" placeholder = "Precio"    required ></th>
+                                <th><input name = "cantidad" type = "text" placeholder = "Cantidad"  required > </th>
+                            </tr>
+                        </table> 
                     <br>
-                    <input type="submit" value="Ingresar">
+                    <input type="submit" value="Ingresar" class="btn btn-primary" >
                     </form>
                     </div>
                 </div>
