@@ -1,5 +1,5 @@
 <?php
-session_start();
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +8,7 @@ session_start();
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Heroic Features - Start Bootstrap Template</title>
+        <title>Menu</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -27,14 +27,39 @@ session_start();
                 <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
                     <div class="m-4 m-lg-5">
                         <h1 class="display-5 fw-bold"> <?php echo $_SESSION['nombre_de_usuario']; ?> </h1>
-                        <p class="fs-4">Bootstrap utility classes are used to create this jumbotron since the old component has been removed from the framework. Why create custom CSS when you can use utilities?</p>
-                        <a class="btn btn-primary btn-lg" href="">Abrir caja</a>
+                        <?php
+                        if(isset($_SESSION['idcaja']) ){ 
+                        ?>
+                        <form action="controlador.php?task=caja_cerrada" method="POST">  
+                        <table>
+                            <tr> 
+                                <th>La caja se ha abierto con: Q. <?php  echo $_SESSION['total_apertura']; ?> </th>
+                                
+                            </tr>
+                            <tr>
+                                <th>En fehca: <?php  echo $_SESSION['fecha_apertura']; ?></th>
+                            </tr>
+                        </table>
+                        <input type="submit" value="Cerrar Caja" class="btn btn-primary" >
+                        </form>
+                        <?php
+                        }else{
+                        ?>
+                        <form action="../controladores/controlador.php?task=caja_abierta" method="POST"> 
+                        <p class="fs-4">
+                            Bootstrap utility classes are used to create this jumbotron since the old component has been removed from the framework. Why create custom CSS when you can use utilities?
+                        </p>
+                        <input type="submit" value="Abrir Caja" class="btn btn-primary" >
+                        </form>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
         </header>
         <!-- Page Content-->
-        <section class="pt-4">
+        <section class="pt-4"> 
             
         </section>
         <!-- Footer-->

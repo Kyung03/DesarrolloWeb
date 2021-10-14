@@ -7,6 +7,7 @@ $data2 = json_decode($_POST['lista_precios']);
 $data3 = json_decode($_POST['lista_cantidad']);
 $clienteid = json_decode($_POST['clienteid']);
 $mpago = json_decode($_POST['mpago']);
+$codigo = $_SESSION['idcaja'];
 $total = 0;
 $empleado = $_SESSION['idusuario'];
 echo $clienteid;
@@ -31,6 +32,16 @@ for ($x = 0; $x < count($data); $x++) {
     echo $query_factura;
 	mysqli_query($con, $query_factura); 
     $last_id = $con->insert_id;
+    /* INSERTAR EN detalle caja */
+    $query_movimiento = "INSERT INTO `detalle_caja`( `tipo_movimiento`, `valor_movimiento`, `fecha_movimiento`, `codigo_caja`, `codigo_factura` ) 
+	VALUES ('VENTA',$total, sysdate(), $codigo, $last_id )";
+    echo $query_movimiento;
+	mysqli_query($con, $query_movimiento); 
+    /* INSERTAR EN total factura */
+    $query_tfactura = "UPDATE `caja` 
+    set  total_factura = (select sum(`valor_movimiento`) from caja c, detalle_caja d where c.`codigo_caja` = d.`codigo_caja` and d.`codigo_caja` = $codigo )
+    WHERE  codigo_caja =  $codigo";
+    $result_tfactura=mysqli_query($con,$query_tfactura);
     /* INSERTAR EN VENTAS */
     for($x = 0; $x < count($data); $x++){
         $sql = "INSERT INTO `ventas`( `codigo_factura`, `codigo_producto`,`cantidad_venta` ) 

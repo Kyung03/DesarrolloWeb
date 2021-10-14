@@ -85,8 +85,13 @@
                         ?>
                          </div>
                          <br><br>
-                         <button type="submit" id="button" class="btn btn-success">Realizar venta</button>  
-                        
+                         <?php if(isset($_SESSION['idcaja']) ){      ?>
+                             
+                            <button type="submit" id="button" class="btn btn-success" >Realizar venta</button>
+                         <?php  }else{    ?>
+                            <label for="">Debe abrir la caja para realizar ventas</label><br>
+                            <button type="submit" id="button" class="btn btn-success" disabled>Realizar venta</button>
+                         <?php   }   ?>
                     </div>
                 </div>
             </div>

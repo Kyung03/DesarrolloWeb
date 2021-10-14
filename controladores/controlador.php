@@ -114,5 +114,13 @@ switch($var){
             include_once('../vistas/vista.venta.php'); 
         break;
 
+        case 'caja_abierta':
+            require_once('../modelo/modelo.abrir.caja.php');
+        break;
+
+        case 'caja_cerrada':
+            require_once('../modelo/modelo.cerrar.caja.php');
+        break;
+
 }
 ?>

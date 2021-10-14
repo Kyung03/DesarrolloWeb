@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,6 +49,7 @@
           </ul>
         </li>
         <li><a href="../controladores/controlador.php?task=venta">Despacho</a></li>
+        
         <li><a href="#">Devoluciones</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reportes <span class="caret"></span></a>
@@ -55,11 +59,17 @@
             <li><a href="">Clientes</a></li>
             <li><a href="">Compras</a></li>
           </ul>
-        </li>
-      </ul>
+        </li> 
+        </ul>
+      
       <ul class="nav navbar-nav navbar-right"> 
+        <?php if(isset($_SESSION['idcaja']) ){  ?>  
+        <li><a  href="#"> Caja abierta <?php echo $_SESSION['idcaja'];  ?> </a></li>
+        <?php  } ?>
         <li><a href="../modelo/cerrar_sesion.php"><span class="glyphicon glyphicon-log-in"></span> Cerrar sesion</a></li>
-      </ul>
+      </ul> 
+      
+      
     </div>
   </div>
 </nav>  
