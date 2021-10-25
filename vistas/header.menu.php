@@ -50,7 +50,7 @@ session_start();
         </li>
         <li><a href="../controladores/controlador.php?task=venta">Despacho</a></li>
         
-        <li><a href="#">Devoluciones</a></li>
+        <li><a href="../controladores/controlador.php?task=devolucion">Devoluciones</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reportes <span class="caret"></span></a>
           <ul class="dropdown-menu"> 

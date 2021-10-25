@@ -44,8 +44,8 @@ for ($x = 0; $x < count($data); $x++) {
     $result_tfactura=mysqli_query($con,$query_tfactura);
     /* INSERTAR EN VENTAS */
     for($x = 0; $x < count($data); $x++){
-        $sql = "INSERT INTO `ventas`( `codigo_factura`, `codigo_producto`,`cantidad_venta` ) 
-        VALUES ($last_id,$data[$x],$data3[$x] )";
+        $sql = "INSERT INTO `venta`( `codigo_factura`, `codigo_producto`,`cantidad_venta`) 
+        VALUES ($last_id,$data[$x],$data3[$x])";
         echo $sql;
         mysqli_query($con, $sql);
     }

@@ -122,5 +122,17 @@ switch($var){
             require_once('../modelo/modelo.cerrar.caja.php');
         break;
 
+        case 'devolucion':
+            require_once('../modelo/modelo.listar.facturas.php'); 
+            //$dato = $aaa;
+            include_once('../vistas/vista.devolucion.php');
+        break;
+
+        case 'listar_venta':
+            require_once('../modelo/modelo.listar.ventas.php'); 
+            //$dato = $aaa;
+            include_once('../vistas/vista.devolucion.ventas.php');
+        break;
+
 }
 ?>
