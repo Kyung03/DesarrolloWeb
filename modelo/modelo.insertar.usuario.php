@@ -6,6 +6,6 @@ $query = "insert into clientes (nombre_cliente, telefono_cliente, direccion_clie
 values ('$nombre', $telefono, '$direccion', '$correo', 1, sysdate())";
 $result=mysqli_query($con,$query);
 
-//header("Location:../controladores/controlador.php?task=menu")  ;
+header("Location:../controladores/controlador.php?task=usuario")  ;
 
 ?>

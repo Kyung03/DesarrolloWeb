@@ -32,12 +32,14 @@
                         } 
                         ?>
                          <div >
-                             <table id="demo" class="table">
+                            <table class="table">
                                  <tr>
                                      <th>Producto</th>
                                      <th>Precio</th>
                                      <th>Cantidad</th>
                                  </tr>
+                             </table>
+                             <table id="demo" class="table"> 
                              </table>
                          </div> 
                          <div>
@@ -142,21 +144,24 @@
         var input       =   document.createElement("input");
         input.value="";
         input.setAttribute("id","cantidad"+cod);  
-        var options =   '<td>    ';
+        tr.setAttribute("id","pr");  
+        var options =   ' ';
         lista.push(cod);
         lista_precios.push(precio);
         //alert(precio);
         /*      input del codigo                */
-        options += '<input name = "'    +cod+   '" type = "text" value          = "'    +producto+           '" disabled >'+' </td>';
+        options += '<th><input name = "'    +cod+   '" type = "text" value          = "'    +producto+           '" disabled >'+' </th>';
         /*      input del precio                */
-        options += '<input name = "'    +cod+   '" type = "text" value          = "'    +precio+        '" disabled >'+' </td>';
+        options += '<th><input name = "'    +cod+   '" type = "text" value          = "'    +precio+        '" disabled >'+' </th>';
         /*      input de la cantidad            */
-        options += ' </td>';
+        options += '<th><input id =cantidad"'    +cod+   '" type="number" min="1" value  = "1"  >'+' </th>';
+        options += '<td><input type="button" class="borrar" value="Eliminar" /></td>';
+        options += ' ';
 
 		tr.innerHTML = options;
         
         document.getElementById("demo").appendChild(tr);
-        document.getElementById("demo").appendChild(input);
+        //document.getElementById("demo").appendChild(input);
         //var cantidad = getElementById(miid).value;
         //lista_cantidad.push(cantidad);alert(cantidad);
 		//tbody.appendChild(tr); 
@@ -176,7 +181,13 @@
         document.getElementById("direccionC").value   =   document.getElementById("direccion"+cod).value;
         document.getElementById("correoC").value      =   document.getElementById("correo"+cod).value;
     }
+/*-------------------------------------------------------------------------------------*/
 
+$(document).on('click', '.borrar', function (event) {
+    event.preventDefault();
+    $(this).closest('tr').remove();
+});
+/*-----------------------------------------------------------------------------------*/
     function showUser(str) {
      
     var xmlhttp=new XMLHttpRequest();

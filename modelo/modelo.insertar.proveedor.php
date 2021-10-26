@@ -7,6 +7,6 @@ $query = "insert into proveedores
 values ('$nombre', $telefono, '$direccion', '$correo', 1 )";
 $result=mysqli_query($con,$query);
 
-//header("Location:../controladores/controlador.php?task=menu")  ;
+header("Location:../controladores/controlador.php?task=proveedor")  ;
 
 ?>

@@ -14,8 +14,8 @@ $result_total=mysqli_query($con,$query_total);
 $mostrar_total=mysqli_fetch_array($result_total);
 $total = $mostrar_total['total_cierre'];
 
-$query = "insert into `caja` (fecha_apertura,total_apertura,total_cierre,total_factura,total_movimientos )
-values ( sysdate(), $total,0,0,0 )";
+$query = "insert into `caja` (fecha_apertura,total_apertura,total_cierre,total_factura,total_movimientos,total_devoluciones )
+values ( sysdate(), $total,0,0,0,0 )";
 $result=mysqli_query($con,$query);
 
 $last_id = $con->insert_id;

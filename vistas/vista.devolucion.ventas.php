@@ -30,6 +30,7 @@
                             echo '<input type="hidden"  id="precio'.$mostrar2['codigo_producto'].'" value="'.$mostrar2['precio'].'">';
                             echo '<input type="hidden"  id="cant'.$mostrar2['codigo_producto'].'" value="'.$mostrar2['cantidad_venta'].'">';
                         } ?>
+                        <input type="hidden" value="<?php echo $factura;  ?>" id="idf">
                         <div >
                              <table id="demo" class="table">
                                  <tr>
@@ -63,7 +64,7 @@
                 //Lo agregas al array.
                 lista_cantidad.push(can);
                 } 
-                //var clienteid=$("#clienteid").val();
+                var idf=$("#idf").val();
                 //var mpago=$("#mpago").val();
                 $.ajax({
                     url:'../modelo/modelo.insertar.devolucion.php',
@@ -72,7 +73,7 @@
                         'lista': JSON.stringify(lista),
                         'lista_precios': JSON.stringify(lista_precios),
                         'lista_cantidad': JSON.stringify(lista_cantidad),
-                        //clienteid:clienteid,
+                        idf:idf
                         //mpago:mpago
                     },
                    success:function(data){
@@ -109,6 +110,7 @@
         options += '<th><input name = "'    +cod+   '" type = "text" value          = "'    +precio+        '" disabled >'+' </th>';
         /*      input del cantidad                */
         options += '<th> <input id = "'    +cod+   '"   type="number" value          = "'    +cantidad+        '"   min="1" max="'+cantidad+'">'+'  </th>';
+        options += '<td><input type="button" class="borrar" value="Eliminar" /></td>';
         /*      input de la cantidad            */
         options += '  ';
 
@@ -136,6 +138,11 @@
   }
   $('#'+id_input).val(numero);
 }
+/*-------------------------------------------------------------------------------------*/
 
-
+$(document).on('click', '.borrar', function (event) {
+    event.preventDefault();
+    $(this).closest('tr').remove();
+});
+/*-----------------------------------------------------------------------------------*/
 </script>
