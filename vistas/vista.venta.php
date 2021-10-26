@@ -1,5 +1,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,7 +101,7 @@
 <?php require 'footer.php'; ?>
 <script>
         $(document).ready(function(){
-            $("#button").click(function(){
+            $("#button").click(function(){ 
                 //var name=$("#name").val(); 
                 for(var i=0; i<lista.length; i++){
                 // Tu fecha
@@ -127,7 +127,8 @@
                 });
             });
         });
-    </script>
+    </script> 
+         
 </body>
 </html>
 
@@ -154,7 +155,7 @@
         /*      input del precio                */
         options += '<th><input name = "'    +cod+   '" type = "text" value          = "'    +precio+        '" disabled >'+' </th>';
         /*      input de la cantidad            */
-        options += '<th><input id =cantidad"'    +cod+   '" type="number" min="1" value  = "1"  >'+' </th>';
+        options += '<th><input id ="cantidad'+cod+'" name=cantidad"'    +cod+   '" type="number" min="1" value  = "1"  >'+' </th>';
         options += '<td><input type="button" class="borrar" value="Eliminar" /></td>';
         options += ' ';
 

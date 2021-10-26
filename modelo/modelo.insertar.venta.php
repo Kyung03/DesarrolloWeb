@@ -10,8 +10,8 @@ $mpago = json_decode($_POST['mpago']);
 $codigo = $_SESSION['idcaja'];
 $total = 0;
 $empleado = $_SESSION['idusuario'];
-echo $clienteid;
-echo $mpago;
+//echo $clienteid;
+//echo $mpago;
 //foreach ($data as $val) {
 //    echo $val;
 //}
@@ -24,18 +24,18 @@ echo $mpago;
 //} 
 for ($x = 0; $x < count($data); $x++) {
     $total = intval($total) + intval($data2[$x])*intval($data3[$x]);
-    echo $total;
+    //echo $total;
   } 
 	/* SE CREA LA FACTURA */
 	$query_factura = "INSERT INTO `factura`( `total`, `codigo_empleado`, `codigo_cobro` ) 
 	VALUES ($total, $empleado, $mpago )";
-    echo $query_factura;
+   // echo $query_factura;
 	mysqli_query($con, $query_factura); 
     $last_id = $con->insert_id;
     /* INSERTAR EN detalle caja */
     $query_movimiento = "INSERT INTO `detalle_caja`( `tipo_movimiento`, `valor_movimiento`, `fecha_movimiento`, `codigo_caja`, `codigo_factura` ) 
 	VALUES ('VENTA',$total, sysdate(), $codigo, $last_id )";
-    echo $query_movimiento;
+    //echo $query_movimiento;
 	mysqli_query($con, $query_movimiento); 
     /* INSERTAR EN total factura */
     $query_tfactura = "UPDATE `caja` 
@@ -46,15 +46,28 @@ for ($x = 0; $x < count($data); $x++) {
     for($x = 0; $x < count($data); $x++){
         $sql = "INSERT INTO `venta`( `codigo_factura`, `codigo_producto`,`cantidad_venta`) 
         VALUES ($last_id,$data[$x],$data3[$x])";
-        echo $sql;
+        //echo $sql;
         mysqli_query($con, $sql);
     }
     /*  INSERTAR EN DETALLE FACTURA    */
     $query_detalle = "INSERT INTO `detalle_factura`( `fecha`, `codigo_factura`, `codigo_cliente` ) 
 	VALUES (sysdate(), $last_id, $clienteid )";
-    echo $query_detalle;
+    //echo $query_detalle;
 	mysqli_query($con, $query_detalle); 
 
-	mysqli_close($con);
- 
+	mysqli_close($con);  
+    
+    
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Refresh" content="0; url=' ../controladores/controlador.php?task=usuario'" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
