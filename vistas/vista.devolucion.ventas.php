@@ -8,7 +8,7 @@
      
  
 </head>
-<body>
+<body onload="botonOFF()">
 <?php  require 'header.menu.php'; ?>
     
     <header class="py-5">
@@ -18,6 +18,7 @@
                     <div>
                          <h2>Factura.</h2> 
                          <select name="producto" id="producto"  onchange="insertar_producto()" > 
+                         <option value="0">Seleccione</option>
                         <?php   
                         while($mostrar=mysqli_fetch_array($result_producto2)){
                             echo '<option value="'.$mostrar['codigo_producto'].'">'.$mostrar['nombre_producto'].'</option>'; 
@@ -86,6 +87,7 @@
 </body>
 </html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../public/js/btn.js"></script>
 <script>
     var lista = [];
     var lista_precios = [];

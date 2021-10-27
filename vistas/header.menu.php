@@ -54,8 +54,8 @@ session_start();
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reportes <span class="caret"></span></a>
           <ul class="dropdown-menu"> 
-            <li><a href="">Cierre del día</a></li>
-            <li><a href="">Devoluciones</a></li>
+            <li><a href="../controladores/controlador.php?task=cierre_del_dia">Cierre del día</a></li>
+            <li><a href="../controladores/controlador.php?task=reporte_devolucion_fecha">Devoluciones</a></li>
             <li><a href="">Clientes</a></li>
             <li><a href="">Compras</a></li>
           </ul>

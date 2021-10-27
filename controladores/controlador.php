@@ -128,5 +128,29 @@ switch($var){
             include_once('../vistas/vista.devolucion.ventas.php');
         break;
 
+        case 'cierre_del_dia':
+            require_once('../modelo/modelo.reporte.cierre.php');
+            //$dato = $aaa;
+            include_once('../vistas/vista.reporte.cierre.php');
+        break;
+
+        case 'mostrar_cierre':
+            require_once('../modelo/modelo.mostrar.cierre.php'); 
+            //$dato = $aaa;
+            include_once('../vistas/vista.mostrar.cierre.php');
+        break;
+
+        case 'reporte_devolucion_fecha':
+            require_once('../modelo/modelo.reporte.devolucion.php');
+            //$dato = $aaa;
+            include_once('../vistas/vista.reporte.devolucion.php');
+        break;
+
+        case 'reporte_devolucion':
+            require_once('../modelo/modelo.mostrar.devolucion.php'); 
+            //$dato = $aaa;
+            include_once('../vistas/vista.mostrar.devolucion.php');
+        break;
+
 }
 ?>
