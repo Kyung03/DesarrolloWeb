@@ -152,5 +152,17 @@ switch($var){
             include_once('../vistas/vista.mostrar.devolucion.php');
         break;
 
+        case 'reporte_elegir_cliente':
+            require_once('../modelo/modelo.reporte.cliente.php');
+            //$dato = $aaa;
+            include_once('../vistas/vista.reporte.cliente.php');
+        break;
+
+        case 'reporte_cliente':
+            require_once('../modelo/modelo.mostrar.cliente.php'); 
+            //$dato = $aaa;
+            include_once('../vistas/vista.mostrar.cliente.php');
+        break;
+
 }
 ?>
