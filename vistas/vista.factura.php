@@ -49,7 +49,7 @@
                                     echo '<th>'.'Q.'.$mostrar['precio'].'</th>'; 
                                     echo '<th>'.'Q.'.$mostrar['precio']*$mostrar['cantidad_venta'].'</th>';  
                                     echo '</tr>'; 
-                                    $contenido .= "  ".$mostrar['precio'];
+                                    $contenido .= "  ".$mostrar['cantidad_venta'];
                                     $contenido .= "  ".$mostrar['nombre_producto'];
                                 } 
                                 echo '<tr>';  
@@ -58,8 +58,10 @@
                                 echo '<th> </th>';  
                                 echo '<th>'.'Q.'.$mostrar_total['total'].'</th>';  
                                 echo '</tr>'; 
+                                $contenido .= "  Ha obtenido la promocion de: ".$mostrar_prom['tipo'];
+                                $contenido .= "  ".$mostrar_prom['descripcion'];
                                 $dato 	= 	time();
-                                QRcode::png($contenido,"../public/img/qr_".$dato.".png",'L',7,2); 
+                                QRcode::png($contenido,"../public/img/qr_".$dato.".png",'L',5,2); 
                                 
                             ?>
                         </table> 

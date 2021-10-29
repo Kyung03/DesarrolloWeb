@@ -10,6 +10,7 @@ $mpago = json_decode($_POST['mpago']);
 $codigo = $_SESSION['idcaja'];
 $total = 0;
 $empleado = $_SESSION['idusuario'];
+$verificacion = true;
 //echo $clienteid;
 //echo $mpago;
 //foreach ($data as $val) {
@@ -24,12 +25,30 @@ $empleado = $_SESSION['idusuario'];
 //} 
 for ($x = 0; $x < count($data); $x++) {
     $total = intval($total) + intval($data2[$x])*intval($data3[$x]);
-    echo $total;
+    //echo $total;
   } 
+/* VERIFICAR CANTIDAD */
+for($x = 0; $x < count($data); $x++){
+    $query_verificar = " SELECT cantidad FROM productos WHERE codigo_producto = $data[$x]";
+    $result_verificar=mysqli_query($con,$query_verificar);
+    $mostrar_verificar=mysqli_fetch_array($result_verificar);
+    //echo $query_verificar;
+    //echo $mostrar_verificar['cantidad_producto'];
+    //echo $mostrar_verificar['cantidad'];
+    //echo $data3[$x];
+    if($mostrar_verificar['cantidad'] < $data3[$x]){
+        $verificacion = false;
+
+    }
+    //mysqli_query($con, $sql);
+}
+if($verificacion == false){ 
+    echo "menu";
+}else{
 	/* SE CREA LA FACTURA */
 	$query_factura = "INSERT INTO `factura`( `total`, `codigo_empleado`, `codigo_cobro` ) 
 	VALUES ($total, $empleado, $mpago )";
-   // echo $query_factura;
+    echo $query_factura;
 	mysqli_query($con, $query_factura); 
     $last_id = $con->insert_id;
     /* INSERTAR EN detalle caja */
@@ -55,8 +74,9 @@ for ($x = 0; $x < count($data); $x++) {
     //echo $query_detalle;
 	mysqli_query($con, $query_detalle); 
 
-	mysqli_close($con);  
-    
+	mysqli_close($con);
+    echo "factura";  
+}
     //echo "<script>window.loctaion.href = tupagina</script>"; 
 
 ?> 

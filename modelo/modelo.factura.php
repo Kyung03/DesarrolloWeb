@@ -4,6 +4,8 @@ $con=conectar();
 $contenido = "La compra realizada ";
 $query = " SELECT max(`codigo_factura`) FROM factura ";
 $result=mysqli_query($con,$query);  
+$num = rand(1,5);
+
 while($mostrar_=mysqli_fetch_array($result)){
     $codigo = $mostrar_['max(`codigo_factura`)']; 
  }
@@ -25,4 +27,7 @@ while($mostrar_=mysqli_fetch_array($result)){
  $result_total = mysqli_query($con,$query_datos);  
  $mostrar_total=mysqli_fetch_array($result_total);
 
+ $query_prom = " SELECT * FROM `promociones` WHERE `codigo_promocion` =  $num "; 
+ $result_prom = mysqli_query($con,$query_prom);   
+ $mostrar_prom=mysqli_fetch_array($result_prom);
 ?>

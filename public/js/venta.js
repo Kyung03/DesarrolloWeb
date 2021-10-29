@@ -24,8 +24,15 @@ var lista = [];
                         mpago:mpago
                     },
                    success:function(data){
-                       alert("Venta realizada");
-                       window.location.replace("../controladores/controlador.php?task=factura");
+                       //alert(data);
+                       if(data.trim() == "menu"){
+                        alert("Uno de los productos excede las existencias");
+                        window.location.replace("../controladores/controlador.php?task=menu");
+                       }else{
+                        alert("Venta realizada");
+                        window.location.replace("../controladores/controlador.php?task=factura");
+                       }
+                         
                    }
                 });
             });
