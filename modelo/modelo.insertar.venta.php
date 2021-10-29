@@ -24,7 +24,7 @@ $empleado = $_SESSION['idusuario'];
 //} 
 for ($x = 0; $x < count($data); $x++) {
     $total = intval($total) + intval($data2[$x])*intval($data3[$x]);
-    //echo $total;
+    echo $total;
   } 
 	/* SE CREA LA FACTURA */
 	$query_factura = "INSERT INTO `factura`( `total`, `codigo_empleado`, `codigo_cobro` ) 
@@ -57,17 +57,6 @@ for ($x = 0; $x < count($data); $x++) {
 
 	mysqli_close($con);  
     
-    
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Refresh" content="0; url=' ../controladores/controlador.php?task=usuario'" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+    //echo "<script>window.loctaion.href = tupagina</script>"; 
+
+?> 

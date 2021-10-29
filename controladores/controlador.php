@@ -104,9 +104,14 @@ switch($var){
         break;
 
         case 'venta':
-            require_once('../modelo/modelo.listar.producto.php'); 
+            require_once('../modelo/modelo.listar.producto.php');  
             include_once('../vistas/vista.venta.php'); 
         break; 
+
+        case 'factura':
+            require_once('../modelo/modelo.factura.php');  
+            include_once('../vistas/vista.factura.php');  
+        break;  
 
         case 'caja_abierta':
             require_once('../modelo/modelo.abrir.caja.php');

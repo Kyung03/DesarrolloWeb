@@ -57,7 +57,7 @@ session_start();
             <li><a href="../controladores/controlador.php?task=cierre_del_dia">Cierre del día</a></li>
             <li><a href="../controladores/controlador.php?task=reporte_devolucion_fecha">Devoluciones</a></li>
             <li><a href="../controladores/controlador.php?task=reporte_elegir_cliente">Clientes</a></li>
-            <li><a href="">Compras</a></li>
+            <li><a href="../controladores/controlador.php?task=factura">Compras</a></li>
           </ul>
         </li> 
         </ul>
