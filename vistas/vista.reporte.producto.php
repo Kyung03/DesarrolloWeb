@@ -15,11 +15,14 @@
             <div class="container px-lg-5">
                 <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
                     <div class="m-4 m-lg-5">
+                        <h1>Productos</h1>
                         <table class="table">
                             <tr>
                                 <th>Producto</th>
                                 <th>Precio</th>
                                 <th>Cantidad</th> 
+                                <th>Tipo</th> 
+                                <th>Proveedor</th>
                             </tr>
                             <?php 
                                 while($mostrar=mysqli_fetch_array($result)){
@@ -27,6 +30,8 @@
                                     echo '<th>'.$mostrar['nombre_producto'].'</th>'; 
                                     echo '<th>'.$mostrar['precio'].'</th>'; 
                                     echo '<th>'.$mostrar['cantidad'].'</th>';  
+                                    echo '<th>'.$mostrar['Tipo'].'</th>';  
+                                    echo '<th>'.$mostrar['nombre_proveedor'].'</th>';  
                                     echo '</tr>';
                                 } 
                             ?>

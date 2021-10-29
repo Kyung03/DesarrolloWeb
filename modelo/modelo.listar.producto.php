@@ -2,7 +2,7 @@
 include('../conexion/conexion.php');
 $con=conectar();
 
-$query = "SELECT * FROM productos";
+$query = " SELECT * FROM productos p,proveedores pro WHERE p.codigo_proveedor = pro.codigo_proveedor ";
 $result=mysqli_query($con,$query);
 $result2=mysqli_query($con,$query);
 

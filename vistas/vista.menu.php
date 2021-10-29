@@ -26,7 +26,7 @@
             <div class="container px-lg-5">
                 <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
                     <div class="m-4 m-lg-5">
-                        <h1 class="display-5 fw-bold"> <?php echo $_SESSION['nombre_de_usuario']; ?> </h1>
+                        <h1 class="display-5 fw-bold">Bienvenido:  <?php echo $_SESSION['nombre_de_usuario']; ?> </h1>
                         <?php
                         if(isset($_SESSION['idcaja']) ){ 
                         ?>
@@ -47,7 +47,8 @@
                         ?>
                         <form action="../controladores/controlador.php?task=caja_abierta" method="POST"> 
                         <p class="fs-4">
-                            Bootstrap utility classes are used to create this jumbotron since the old component has been removed from the framework. Why create custom CSS when you can use utilities?
+                            Sistema de inventario para ventas.
+                            Para iniciar las ventas debe abrir la caja.
                         </p>
                         <input type="submit" value="Abrir Caja" class="btn btn-primary" >
                         </form>

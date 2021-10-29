@@ -20,6 +20,25 @@
                                 <th><input name = "nombre"   type = "text" placeholder = "Nombre"    required ></th>
                                 <th><input name = "precio"   type = "text" placeholder = "Precio"    required ></th>
                                 <th><input name = "cantidad" type = "text" placeholder = "Cantidad"  required > </th>
+                                <th>
+                                    <select name="tipo" id="tipo">
+                                        <option value="Pastas">Pastas</option>
+                                        <option value="Carnicos">Carnicos</option>
+                                        <option value="Embutidos">Embutidos</option>
+                                        <option value="Lacteos">Lacteos</option>
+                                        <option value="Golosinas">Golosinas</option>
+                                        <option value="Gaseosas">Gaseosas</option> 
+                                        <option value="Carbonatados">Carbonatados</option>
+                                    </select> 
+                                </th>
+                                <th>
+                                    <select name="proveedor" id="proveedor" > 
+                                    <?php   
+                                    while($mostrar=mysqli_fetch_array($result)){
+                                        echo '<option value="'.$mostrar['codigo_proveedor'].'">'.$mostrar['nombre_proveedor'].'</option>'; 
+                                    }?>
+                                    </select>  
+                                </th>
                             </tr>
                         </table> 
                     <br>

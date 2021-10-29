@@ -80,6 +80,7 @@ switch($var){
         break;
 
         case 'insertar_producto_vista':
+            require_once('../modelo/modelo.listar.proveedor.php');
             include_once('../vistas/vista.insertar.producto.php');
             
         break;
@@ -90,6 +91,8 @@ switch($var){
                 $nombre     =   $_POST["nombre"];
                 $precio     =   $_POST["precio"];
                 $cantidad   =   $_POST["cantidad"]; 
+                $tipo       =   $_POST["tipo"]; 
+                $proveedor  =   $_POST["proveedor"]; 
                 require_once('../modelo/modelo.insertar.producto.php');
                 echo '<script type="text/javascript">
                 alert("Producto ingresado.");");
